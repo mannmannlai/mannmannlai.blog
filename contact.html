@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <!-- Link to the shared CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Link to the specific CSS file for contact.html -->
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body id="contact-page">
+    <header>
+        <h1 id="header">Contact Me</h1>
+        <nav>
+            <!-- Back to Home Button -->
+            <a href="index.html" id="back-home">Back to Home</a>
+        </nav>
+
+        <!-- Language Switcher -->
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="ja">日本語</option>
+        </select>
+    </header>
+
+    <section>
+        <form id="contact-form" onsubmit="sendEmail(event)">
+            <label for="name" id="label-name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email" id="label-email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message" id="label-message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+    
+            <button type="submit" id="send-button">Send</button>
+        </form>
+    </section>
+
+    <script>
+        // Translations for language switching
+        const translations = {
+            "en": {
+                "title": "Contact",
+                "header": "Contact Me",
+                "back": "Back to Home",
+                "name": "Name:",
+                "email": "Email:",
+                "message": "Message:",
+                "send": "Send"
+            },
+            "zh-Hant": {
+                "title": "聯絡我們",
+                "header": "聯絡我",
+                "back": "返回首頁",
+                "name": "姓名：",
+                "email": "電子郵件：",
+                "message": "訊息：",
+                "send": "發送"
+            },
+            "ja": {
+                "title": "お問い合わせ",
+                "header": "お問い合わせ",
+                "back": "ホームに戻る",
+                "name": "名前：",
+                "email": "メール：",
+                "message": "メッセージ：",
+                "send": "送信"
+            }
+        };
+
+        // Function to change language
+        function changeLanguage(lang) {
+            localStorage.setItem("lang", lang);
+            applyLanguage(lang);
+        }
+
+        // Function to apply translations
+        function applyLanguage(lang) {
+            document.title = translations[lang]["title"];
+            document.getElementById("header").innerText = translations[lang]["header"];
+            document.getElementById("back-home").innerText = translations[lang]["back"];
+            document.getElementById("label-name").innerText = translations[lang]["name"];
+            document.getElementById("label-email").innerText = translations[lang]["email"];
+            document.getElementById("label-message").innerText = translations[lang]["message"];
+            document.getElementById("send-button").innerText = translations[lang]["send"];
+            document.getElementById("language-select").value = lang;
+        }
+
+        // Function to handle form submission
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Construct the mailto link
+            const subject = encodeURIComponent("Contact Form Submission");
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+            const mailtoLink = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+
+            // Open the mailto link
+            window.location.href = mailtoLink;
+        }
+
+        // Load language from localStorage on page load
+        window.onload = function() {
+            const savedLang = localStorage.getItem("lang") || "en"; 
+            applyLanguage(savedLang);
+        };
+    </script>
+</body>
+</html>

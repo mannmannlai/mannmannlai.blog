@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIU MANYUN Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <header id="main-header">
+        <h1 class="fade-in">LIU MANYUN</h1>
+        <nav>
+            <ul>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <select id="language-select" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh-Hant">繁體中文</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Replace the Parallax Hero Section -->
+    <section class="hero-video">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="videos/header.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2 class="hero-text" id="welcome">Welcome to My Portfolio</h2>
+    </section>
+
+    <article id="about" class="section fade-up">
+        <h2>About me</h2>
+        <p>Feel free to reach out to me anytime.</p>
+    </article>
+    
+    <article id="projects" class="section fade-up">
+        <h2>Projects</h2>
+        <p id="projects-text">Check out some of my latest work.</p>
+    
+        <div class="project-cards">
+            <!-- Story 1 -->
+            <a href="story1.html">
+                <div class="card">
+                    <img src="images/story_cover1.JPG" width="10%" alt="Story 1">
+                    <div class="overlay">
+                        <h5>- title -</h5>
+                    </div>
+                    <h4>story1</h4>
+                </div>
+            </a>
+    
+            <!-- Story 2 -->
+            <a href="story2.html">
+                <div class="card">
+                    <img src="images/story_cover2.JPG" width="10%" alt="Story 2">
+                    <div class="overlay">
+                        <h5>- title -</h5>
+                    </div>
+                    <h4>story2</h4>
+                </div>
+            </a>
+    
+            <!-- Story 3 -->
+            <a href="story3.html">
+                <div class="card">
+                    <img src="images/story_cover3.JPG" width="10%" alt="Story 3">
+                    <div class="overlay">
+                        <h5>- title -</h5>
+                    </div>
+                    <h4>story3</h4>
+                </div>
+            </a>
+    
+            <!-- Story 4 -->
+            <a href="story4.html">
+                <div class="card">
+                    <img src="images/story_cover4.JPG" width="10%" alt="Story 4">
+                    <div class="overlay">
+                        <h5>- title -</h5>
+                    </div>
+                    <h4>story4</h4>
+                </div>
+            </a>
+    
+            <!-- Story 5 -->
+            <a href="story5.html">
+                <div class="card">
+                    <img src="images/story_cover5.JPG" width="10%" alt="Story 5">
+                    <div class="overlay">
+                        <h5>- title -</h5>
+                    </div>
+                    <h4>story5</h4>
+                </div>
+            </a>
+    
+            <!-- Story 6 -->
+            <a href="story6.html">
+                <div class="card">
+                    <img src="images/story_cover6.JPG" width="10%" alt="Story 6">
+                    <div class="overlay">
+                        <h5>- title -</h5>
+                    </div>
+                    <h4>story6</h4>
+                </div>
+            </a>
+        </div>
+    </article>
+
+    <footer>
+        <p class="fade-in">© 2025 LIU MANYUN. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    
+        // Parallax background effect
+        gsap.to(".parallax-background", {
+            y: "-20%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".parallax",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    
+        // Fade-in and scroll effects
+        gsap.utils.toArray(".fade-up").forEach(element => {
+            gsap.from(element, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+    
+        // Smooth scrolling when clicking navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    
+        function changeLanguage(lang) {
+            localStorage.setItem("lang", lang);
+            applyLanguage(lang);
+        }
+    
+        function applyLanguage(lang) {
+            const header = document.getElementById("main-header");
+    
+            // Remove existing language-specific font classes
+            header.classList.remove("font-en", "font-zh", "font-ja");
+    
+            // Add the appropriate font class based on the selected language
+            if (lang === "en") {
+                header.classList.add("font-en");
+            } else if (lang === "zh-Hant") {
+                header.classList.add("font-zh");
+            } else if (lang === "ja") {
+                header.classList.add("font-ja");
+            }
+    
+            // Update translations
+            document.title = translations[lang]["title"];
+            document.getElementById("welcome").innerText = translations[lang]["welcome"];
+            document.getElementById("about").querySelector("h2").innerText = translations[lang]["about"];
+            document.getElementById("projects").querySelector("h2").innerText = translations[lang]["projects"];
+            document.getElementById("contact").querySelector("h2").innerText = translations[lang]["contact"];
+            document.getElementById("language-select").value = lang;
+        }
+
+        // Language translations
+        const translations = {
+            "en": {
+                "title": "LIU MANYUN Portfolio",
+                "welcome": "Welcome to My Portfolio",
+                "about": "About Me",
+                "projects": "Projects",
+                "contact": "Contact"
+            },
+            "zh-Hant": {
+                "title": "劉曼筠的作品集",
+                "welcome": "歡迎來到我的作品集",
+                "about": "關於我",
+                "projects": "作品",
+                "contact": "聯絡"
+            },
+            "ja": {
+                "title": "リュウのポートフォリオ",
+                "welcome": "リュウのポートフォリオへようこそ",
+                "about": "私について",
+                "projects": "プロジェクト",
+                "contact": "コンタクト"
+            }
+        };
+        
+        // Load the saved language on page load
+        window.onload = function() {
+            const savedLang = localStorage.getItem("lang") || "en";
+            applyLanguage(savedLang);
+        };
+    </script>
+
+</body>
+</html>

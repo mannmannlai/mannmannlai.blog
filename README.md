@@ -1,2 +1,0 @@
-# mannmannlai.blog
-Personal Blog

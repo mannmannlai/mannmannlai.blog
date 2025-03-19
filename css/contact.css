@@ -1,0 +1,100 @@
+/* Styles specific to contact.html */
+#contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f5f5f5;
+}
+
+#contact-page header {
+    background: #1e1e2f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#contact-page section {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#contact-page form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#contact-page form input,
+#contact-page form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-page form button {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#contact-page form button:hover {
+    background: #d17d0c;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a,
+#back-home {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect for Navigation Links and Back to Home Button */
+nav ul li a:hover,
+#back-home:hover {
+    color: #f39c12; /* Change to an accent color */
+}
+
+/* Underline Animation on Hover */
+nav ul li a::after,
+#back-home::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #f39c12;
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after,
+#back-home:hover::after {
+    width: 100%;
+}
