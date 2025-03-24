@@ -121,7 +121,7 @@ nav ul li a:hover::after {
 /* Scrollable Sections */
 .section {
     min-height: 100vh;
-    padding: 100px 20px;
+    padding: 150px 20px 50px; /* increased top padding to move content down */
     background: white;
     margin-bottom: 50px;
 }
@@ -195,4 +195,38 @@ html {
 /* Apply the font for Traditional Chinese */
 [lang="zh-Hant"] {
     font-family: 'JF Open Huninn', sans-serif;
+}
+
+/* Additional styling for profile image overlay in About Me */
+.profile-container {
+    position: relative;
+    display: inline-block;
+    width: 50%; /* Added to fix container width matching the image */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-container img {
+    display: block;
+    width: 100%; /* Make the image fill the container */
+    height: auto;
+    z-index: 1;
+}
+
+.profile-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container:hover .overlay {
+    display: flex;
 }
