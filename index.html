@@ -188,7 +188,17 @@
             document.getElementById("welcome").innerText = translations[lang]["welcome"];
             document.getElementById("about").querySelector("h2").innerText = translations[lang]["about"];
             document.getElementById("projects").querySelector("h2").innerText = translations[lang]["projects"];
-            document.getElementById("contact").querySelector("h2").innerText = translations[lang]["contact"];
+            
+            // Update nav link texts so that JP and ZH display the correct translations for about and projects
+            document.querySelector('a[href="#about"]').innerText = translations[lang]["about"];
+            document.querySelector('a[href="#projects"]').innerText = translations[lang]["projects"];
+            
+            // Ensure the "contact" section is updated
+            const contactSection = document.querySelector('a[href="contact.html"]');
+            if (contactSection) {
+                contactSection.innerText = translations[lang]["contact"];
+            }
+
             document.getElementById("language-select").value = lang;
         }
 
