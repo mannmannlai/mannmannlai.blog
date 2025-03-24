@@ -46,6 +46,10 @@
     <article id="about" class="section fade-up">
         <h2>About me</h2>
         <p>Feel free to reach out to me anytime.</p>
+        <!-- Wrap profile image in a container -->
+        <div class="profile-container">
+            <img id="profile-img" src="images/profile1.JPG" alt="Profile Image">
+        </div>
     </article>
     
     <article id="projects" class="section fade-up">
@@ -232,6 +236,15 @@
             const savedLang = localStorage.getItem("lang") || "en";
             applyLanguage(savedLang);
         };
+
+        const profileContainer = document.querySelector('.profile-container');
+        const profileImg = document.getElementById('profile-img');
+        profileContainer.addEventListener('mouseenter', () => {
+            profileImg.src = "images/profile2.JPG";
+        });
+        profileContainer.addEventListener('mouseleave', () => {
+            profileImg.src = "images/profile1.JPG";
+        });
     </script>
 
 </body>
