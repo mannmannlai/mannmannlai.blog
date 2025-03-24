@@ -98,3 +98,29 @@ nav ul li a:hover::after,
 #back-home:hover::after {
     width: 100%;
 }
+
+/* New styles for footer social buttons */
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+footer .social-buttons {
+    margin-top: 10px;
+}
+
+footer .social-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #f39c12;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+footer .social-button:hover {
+    background-color: #d17d0c;
+}
