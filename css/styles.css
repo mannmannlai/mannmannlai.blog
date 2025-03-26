@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background: #f5f5f5;
+    overflow-x: hidden; /* Added to remove horizontal scrolling */
 }
 
 header {
@@ -19,7 +20,7 @@ header {
     align-items: center;
     z-index: 1000;
     font-weight: 400; /* Adjust weight as needed */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    overflow-x: hidden; /* Changed from auto to hidden */
     white-space: nowrap; /* Prevent wrapping of header content */
 }
 
@@ -229,4 +230,22 @@ html {
 
 .profile-container:hover .overlay {
     display: flex;
+}
+
+/* Add layout for about section wrapper to place image and text side-by-side */
+.about-wrapper {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    gap: 20px;
+}
+.profile-text {
+    flex: 1;
+}
+
+.profile-text p {
+    margin-left: 40px; /* Adjust this value as needed */
+}
+
+p {
+    line-height: 1.5; /* Adjust the value as needed */
 }
