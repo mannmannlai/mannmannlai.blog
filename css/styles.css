@@ -247,5 +247,10 @@ html {
 }
 
 p {
-    line-height: 1.5; /* Adjust the valugit push origin maine as needed */
+    line-height: 2; /* Adjust the valugit push origin maine as needed */
+}
+
+/* Set default font for all elements except header (and its descendants) */
+body :not(header):not(header *) {
+    font-family: 'JF Open Huninn', sans-serif !important;
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Title</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <header>
+        <h1>Story Title</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="story1.html" class="nav-link">story1</a></li>
+                <li><a href="story2.html" class="nav-link">story2</a></li>
+                <li><a href="story3.html" class="nav-link">story3</a></li>
+                <li><a href="story4.html" class="nav-link">story4</a></li>
+                <li><a href="story5.html" class="nav-link">story5</a></li>
+                <li><a href="story6.html" class="nav-link">story6</a></li>
+            </ul>
+        </nav>
+        <!-- Language switcher dropdown -->
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="ja">日本語</option>
+        </select>
+    </header>
+
+    <section>
+        <h2 id="story-heading">Welcome to Story 4</h2>
+        <p id="story-content">This is the content for Story 4. Add your specific content here.</p>
+    </section>
+    <footer>
+        <p>© 2025 LIU MANYUN. All rights reserved.</p>
+    </footer>
+    <script>
+        const storyTranslations = {
+          "en": {
+            "storyHeading": "Welcome to Story 4",
+            "storyContent": "This is the content for Story 4. Add your specific content here."
+          },
+          "zh-Hant": {
+            "storyHeading": "歡迎來到故事 4",
+            "storyContent": "這是故事 4 的內容。請在此添加您的特殊內容。"
+          },
+          "ja": {
+            "storyHeading": "ストーリー4へようこそ",
+            "storyContent": "これはストーリー4の内容です。ここに特定の内容を追加してください。"
+          }
+        };
+        function applyStoryTranslations(lang) {
+          document.getElementById('story-heading').innerText = storyTranslations[lang].storyHeading;
+          document.getElementById('story-content').innerText = storyTranslations[lang].storyContent;
+        }
+        function changeLanguage(lang) {
+          localStorage.setItem("lang", lang);
+          applyStoryTranslations(lang);
+          document.getElementById("language-select").value = lang;
+        }
+        const savedLang = localStorage.getItem("lang") || "en";
+        applyStoryTranslations(savedLang);
+        document.getElementById("language-select").value = savedLang;
+    </script>
+</body>
+</html>

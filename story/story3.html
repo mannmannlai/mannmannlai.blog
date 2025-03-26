@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Title</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <header>
+        <h1>Story Title</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="story1.html" class="nav-link">story1</a></li>
+                <li><a href="story2.html" class="nav-link">story2</a></li>
+                <li><a href="story3.html" class="nav-link">story3</a></li>
+                <li><a href="story4.html" class="nav-link">story4</a></li>
+                <li><a href="story5.html" class="nav-link">story5</a></li>
+                <li><a href="story6.html" class="nav-link">story6</a></li>
+            </ul>
+        </nav>
+        <!-- Language switcher dropdown -->
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="ja">日本語</option>
+        </select>
+    </header>
+
+    <section>
+        <h2 id="story-heading">Welcome to Story 3</h2>
+        <p id="story-content">This is the content for Story 3. Add your specific content here.</p>
+    </section>
+    <script>
+        const storyTranslations = {
+          "en": {
+            "storyHeading": "Welcome to Story 3",
+            "storyContent": "This is the content for Story 3. Add your specific content here."
+          },
+          "zh-Hant": {
+            "storyHeading": "領導團隊經驗",
+            "storyContent": "這是故事 3 的內容。請在此添加您的特殊內容。"
+          },
+          "ja": {
+            "storyHeading": "チームをリードする経験",
+            "storyContent": `軽音部と山岳部のサークル活動や学部のイベント運営では、チームを率いて企画を立案し、メンバーと協力しながら目標達成に向けて取り組みました。チームワークを大切にし、意見をまとめながらリーダーシップを発揮し、円滑な運営を実現しました。これらの経験を通じて、計画立案力や組織運営能力を向上させました。これらの経験を活かし、語学力とコミュニケーション力を駆使しながら、各国の拠点と連携し、市場のニーズを把握し、最適なマーケティング戦略を立案・実行したいと考えています。`
+          }
+        };
+        function applyStoryTranslations(lang) {
+          document.getElementById('story-heading').innerText = storyTranslations[lang].storyHeading;
+          document.getElementById('story-content').innerText = storyTranslations[lang].storyContent;
+        }
+        function changeLanguage(lang) {
+          localStorage.setItem("lang", lang);
+          applyStoryTranslations(lang);
+          document.getElementById("language-select").value = lang;
+        }
+        const savedLang = localStorage.getItem("lang") || "en";
+        applyStoryTranslations(savedLang);
+        document.getElementById("language-select").value = savedLang;
+    </script>
+
+    <footer>
+        <p>© 2025 LIU MANYUN. All rights reserved.</p>
+    </footer>
+</body>
+</html>

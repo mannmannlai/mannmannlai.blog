@@ -21,7 +21,7 @@
         <nav>
             <ul>
                 <li><a href="#about" class="nav-link">About Me</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#story" class="nav-link">Story</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li>
                     <select id="language-select" onchange="changeLanguage(this.value)">
@@ -63,13 +63,13 @@
         </div>
     </article>
     
-    <article id="projects" class="section fade-up">
-        <h2>Projects</h2>
+    <article id="story" class="section fade-up">
+        <h2>Story</h2>
         <p id="projects-text">Check out some of my latest work.</p>
     
         <div class="project-cards">
             <!-- Story 1 -->
-            <a href="story1.html">
+            <a href="story/story1.html">
                 <div class="card">
                     <img src="images/story_cover1.JPG" width="10%" alt="Story 1">
                     <div class="overlay">
@@ -80,7 +80,7 @@
             </a>
     
             <!-- Story 2 -->
-            <a href="story2.html">
+            <a href="story/story2.html">
                 <div class="card">
                     <img src="images/story_cover2.JPG" width="10%" alt="Story 2">
                     <div class="overlay">
@@ -91,7 +91,7 @@
             </a>
     
             <!-- Story 3 -->
-            <a href="story3.html">
+            <a href="story/story3.html">
                 <div class="card">
                     <img src="images/story_cover3.JPG" width="10%" alt="Story 3">
                     <div class="overlay">
@@ -102,7 +102,7 @@
             </a>
     
             <!-- Story 4 -->
-            <a href="story4.html">
+            <a href="story/story4.html">
                 <div class="card">
                     <img src="images/story_cover4.JPG" width="10%" alt="Story 4">
                     <div class="overlay">
@@ -113,7 +113,7 @@
             </a>
     
             <!-- Story 5 -->
-            <a href="story5.html">
+            <a href="story/story5.html">
                 <div class="card">
                     <img src="images/story_cover5.JPG" width="10%" alt="Story 5">
                     <div class="overlay">
@@ -124,7 +124,7 @@
             </a>
     
             <!-- Story 6 -->
-            <a href="story6.html">
+            <a href="story/story6.html">
                 <div class="card">
                     <img src="images/story_cover6.JPG" width="10%" alt="Story 6">
                     <div class="overlay">
@@ -202,11 +202,11 @@
             document.title = translations[lang]["title"];
             document.getElementById("welcome").innerText = translations[lang]["welcome"];
             document.getElementById("about").querySelector("h2").innerText = translations[lang]["about"];
-            document.getElementById("projects").querySelector("h2").innerText = translations[lang]["projects"];
+            document.getElementById("story").querySelector("h2").innerText = translations[lang]["story"];
             
             // Update nav link texts so that JP and ZH display the correct translations for about and projects
             document.querySelector('a[href="#about"]').innerText = translations[lang]["about"];
-            document.querySelector('a[href="#projects"]').innerText = translations[lang]["projects"];
+            document.querySelector('a[href="#story"]').innerText = translations[lang]["story"];
             
             // Ensure the "contact" section is updated
             const contactSection = document.querySelector('a[href="contact.html"]');
@@ -223,21 +223,21 @@
                 "title": "LIU MANYUN Portfolio",
                 "welcome": "Welcome to My Portfolio",
                 "about": "About Me",
-                "projects": "Projects",
+                "story": "Story",
                 "contact": "Contact"
             },
             "zh-Hant": {
                 "title": "劉曼筠的作品集",
-                "welcome": "歡迎來到我的作品集",
+                "welcome": "歡迎來到曼筠的Portfolio",
                 "about": "關於我",
-                "projects": "作品",
+                "story": "故事",
                 "contact": "聯絡"
             },
             "ja": {
                 "title": "リュウのポートフォリオ",
-                "welcome": "リュウのポートフォリオへようこそ",
+                "welcome": "曼筠のProtfolioへようこそ",
                 "about": "私について",
-                "projects": "プロジェクト",
+                "story": "ストーリー",
                 "contact": "コンタクト"
             }
         };
