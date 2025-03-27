@@ -123,12 +123,16 @@ nav ul li a:hover::after {
 .section {
     min-height: 100vh;
     padding: 150px 20px 50px; /* increased top padding to move content down */
-    background: white;
+    background: rgba(255,255,255,0.8);  /* updated to semi-transparent white */
     margin-bottom: 50px;
 }
 
 .section:nth-child(even) {
     background: #eee;
+}
+
+#story.section {
+    background: rgba(255,255,255,0.8) !important;
 }
 
 /* Smooth Scroll Behavior */
@@ -156,14 +160,13 @@ html {
 }
 
 .hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    z-index: 1;
+    text-align: center;
     color: white;
     font-size: 3rem;
-    text-align: center;
-    z-index: 1; /* Places the text above the video */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .font-en {
@@ -253,4 +256,23 @@ p {
 /* Set default font for all elements except header (and its descendants) */
 body :not(header):not(header *) {
     font-family: 'JF Open Huninn', sans-serif !important;
+}
+
+.hero-top {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.hero-top__hero-movie-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+.hero-top__hero-movie-video-body {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

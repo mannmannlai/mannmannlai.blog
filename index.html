@@ -34,12 +34,15 @@
         </nav>
     </header>
 
-    <!-- Replace the Parallax Hero Section -->
-    <section class="hero-video">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="videos/header.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Replace the original hero section with a fixed background video -->
+    <section class="hero-top">
+        <div class="hero-top__hero-movie-video">
+            <div class="hero-top__hero-movie-video-inner hero-top__hero-movie-video-inner--overlay" id="hero-top__hero-movie-video-inner">
+                <video class="hero-top__hero-movie-video-body" id="hero-top__hero-movie-video-body" src="videos/header.mp4" autoplay muted playsinline loop data-channel-id="0" data-object-fit>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
         <h2 class="hero-text" id="welcome">Welcome to My Portfolio</h2>
     </section>
 
