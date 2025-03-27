@@ -276,3 +276,10 @@ body :not(header):not(header *) {
     height: 100%;
     object-fit: cover;
 }
+
+/* Force story card images to be square */
+.project-cards .card img {
+    width: 100%;          /* Fill the container width */
+    aspect-ratio: 1 / 1;   /* Force square aspect ratio */
+    object-fit: cover;     /* Crop to fill the square shape */
+}
