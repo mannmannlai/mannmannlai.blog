@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Link to the specific CSS file for contact.html -->
     <link rel="stylesheet" href="css/contact.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("0Ar53lRS_zwrZN5d1"); // replace with your EmailJS user ID
+      })();
+    </script>
 </head>
 <body id="contact-page">
     <header>
@@ -32,7 +38,9 @@
     
             <label for="email" id="label-email">Email:</label>
             <input type="email" id="email" name="email" required>
-    
+            <!-- Added hidden field for sender (reply-to) -->
+            <input type="hidden" id="reply_to" name="reply_to">
+            
             <label for="message" id="label-message">Message:</label>
             <textarea id="message" name="message" required></textarea>
     
@@ -97,22 +105,20 @@
             document.getElementById("language-select").value = lang;
         }
 
-        // Function to handle form submission
+        // Updated sendEmail function using EmailJS:
         function sendEmail(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-
-            // Get form values
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            // Construct the mailto link
-            const subject = encodeURIComponent("Contact Form Submission");
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-            const mailtoLink = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
-
-            // Open the mailto link
-            window.location.href = mailtoLink;
+            event.preventDefault(); // Prevent default form submission
+            const form = event.target;
+            // Set the hidden reply_to field value to the email entered by sender
+            form.querySelector('input[name="reply_to"]').value = form.querySelector('#email').value;
+            emailjs.sendForm('service_mannmannlai', 'template_mannmannlai', form)
+              .then(function(response) {
+                  alert("Email sent successfully!");
+                  console.log("SUCCESS!", response.status, response.text);
+              }, function(error) {
+                  alert("Failed to send email. Please try again later.");
+                  console.log("FAILED...", error);
+              });
         }
 
         // Load language from localStorage on page load
