@@ -7,6 +7,7 @@ body {
     overflow-x: hidden; /* Added to remove horizontal scrolling */
 }
 
+
 header {
     position: fixed;
     top: 0;
@@ -163,8 +164,12 @@ html {
     position: relative;
     z-index: 1;
     text-align: center;
-    color: white;
-    font-size: 3rem;
+    color: transparent;          /* Make text transparent */
+    -webkit-text-stroke: 0.05px white; /* Apply white outline with 1px thickness */
+    font-size: 3rem;  /* increased font size */
+    background-color: rgba(0, 0, 0, 0.5);  /* semi-transparent background */
+    padding: 20px 20px;  /* increased vertical padding */
+    border-radius: 8px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -329,4 +334,22 @@ body :not(header):not(header *) {
 
 .header-icon {
     width: 70px;  /* changed from 80px to 100px */
+}
+
+.subtitle {
+    color: transparent;          /* Make text transparent */
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 0; /* or margin: 0 auto; if width is defined */
+}
+
+.itsme {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    margin-left: 280px;
 }

@@ -20,7 +20,8 @@
 </head>
 <body>
     <header id="main-header">
-        <img class="header-icon" src="images/icon.png" alt="App Icon">        <h1 class="fade-in">LIU MANYUN</h1>
+        <img class="header-icon" src="images/icon.png" alt="App Icon">
+        <h1 class="fade-in" style="margin-left: 20px;">LIU MANYUN</h1>
         <nav>
             <ul>
                 <li><a href="#about" class="nav-link">About Me</a></li>
@@ -50,8 +51,9 @@
     </section>
 
     <article id="about" class="section fade-up">
-        <h2>About me</h2>
-        <p>↓It's Me↓</p>
+        <!-- Changed to add "subtitle" class -->
+        <h2 class="subtitle">About me</h2>
+        <p class="itsme">↓It's Me↓</p>
         <!-- New wrapper for profile image and text -->
         <div class="about-wrapper">
             <div class="profile-container">
@@ -64,8 +66,8 @@
                         <ul>
                             <li>台湾出身、日本在住</li>
                             <li>日本語、英語、中国語を話せます。</li>
-                            <li>自然言語処理を専攻しています</li>
                             <li>筑波大学 知能機能システム学位 自然言語処理研究室所属</li>
+                            <li>自然言語処理を専攻しています</li>
                         </ul>
                     </details>
                     <details>
@@ -90,13 +92,12 @@
                         </ul>
                     </details>
                 </div>
-                <p>Text inserted below the details tag.</p>
             </div>
         </div>
     </article>
     
     <article id="story" class="section fade-up">
-        <h2>Story</h2>
+        <h2 class="subtitle">Story</h2>
         <p id="projects-text">Check out some of my latest work.</p>
     
         <div class="project-cards">
@@ -226,10 +227,10 @@
                 "contact": "Contact"
             },
             "zh-Hant": {
-                "title": "劉曼筠的作品集",
+                "title": "劉曼筠的Portfolio",
                 "welcome": "歡迎來到曼筠的Portfolio",
                 "about": "關於我",
-                "story": "故事",
+                "story": "小故事",
                 "contact": "聯絡"
             },
             "ja": {
