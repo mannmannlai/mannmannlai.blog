@@ -13,11 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Added icons for app icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
 </head>
 <body>
-
     <header id="main-header">
-        <h1 class="fade-in">LIU MANYUN</h1>
+        <img class="header-icon" src="images/icon.png" alt="App Icon">        <h1 class="fade-in">LIU MANYUN</h1>
         <nav>
             <ul>
                 <li><a href="#about" class="nav-link">About Me</a></li>
@@ -55,13 +58,39 @@
                 <img id="profile-img" src="images/profile1.JPG" alt="Profile Image">
             </div>
             <div class="profile-text">
-                <p>Here are some words next to my profile. 
-                    <br> Here are some words next to my profile.
-                    <br> Here are some words next to my profile.
-                    <br> Here are some words next to my profile.
-                    <br> Here are some words next to my profile.
-                    <br> Here are some words next to my profile.
-                </p>
+                <div class="details-columns">
+                    <details>
+                        <summary>基本情報</summary>
+                        <ul>
+                            <li>台湾出身、日本在住</li>
+                            <li>日本語、英語、中国語を話せます。</li>
+                            <li>自然言語処理を専攻しています</li>
+                            <li>筑波大学 知能機能システム学位 自然言語処理研究室所属</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>保有する資格</summary>
+                        <ul>
+                            <li>日本語能力試験 N1</li>
+                            <li>TOEIC 900点</li>
+                            <li>ITパスポート</li>
+                            <li>基本情報技術者</li>
+                            <li>CWT中国語検定‧上級</li>
+                            <li>大型自動車第一種免許 MT</li>
+                            <li>普通自動二輪免許 MT</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>趣味</summary>
+                        <ul>
+                            <li>登山</li>
+                            <li>クライミング</li>
+                            <li>キャンプ</li>
+                            <li>ベース‧ギターを弾くこと</li>
+                        </ul>
+                    </details>
+                </div>
+                <p>Text inserted below the details tag.</p>
             </div>
         </div>
     </article>
@@ -101,39 +130,6 @@
                         <h5>- title -</h5>
                     </div>
                     <h4>story3</h4>
-                </div>
-            </a>
-    
-            <!-- Story 4 -->
-            <a href="story/story4.html">
-                <div class="card">
-                    <img src="images/story_cover4.JPG" width="10%" alt="Story 4">
-                    <div class="overlay">
-                        <h5>- title -</h5>
-                    </div>
-                    <h4>story4</h4>
-                </div>
-            </a>
-    
-            <!-- Story 5 -->
-            <a href="story/story5.html">
-                <div class="card">
-                    <img src="images/story_cover5.JPG" width="10%" alt="Story 5">
-                    <div class="overlay">
-                        <h5>- title -</h5>
-                    </div>
-                    <h4>story5</h4>
-                </div>
-            </a>
-    
-            <!-- Story 6 -->
-            <a href="story/story6.html">
-                <div class="card">
-                    <img src="images/story_cover6.JPG" width="10%" alt="Story 6">
-                    <div class="overlay">
-                        <h5>- title -</h5>
-                    </div>
-                    <h4>story6</h4>
                 </div>
             </a>
         </div>
@@ -258,6 +254,20 @@
         });
         profileContainer.addEventListener('mouseleave', () => {
             profileImg.src = "images/profile1.JPG";
+        });
+        document.addEventListener("DOMContentLoaded", function(){
+            const details = document.querySelectorAll(".details-columns details");
+            details.forEach(detail => {
+                detail.addEventListener("toggle", function(){
+                    if(detail.open){
+                        details.forEach(other => {
+                            if(other !== detail){
+                                other.removeAttribute("open");
+                            }
+                        });
+                    }
+                });
+            });
         });
     </script>
 
