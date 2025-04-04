@@ -13,7 +13,7 @@ header {
     top: 0;
     height: 80px; /* Adjust height as needed */
     width: 100%;
-    background: rgba(22, 19, 43, 0.8);
+    background: rgba(73, 117, 156, 0.8) !important;
     color: white;
     padding: 15px;
     display: flex;
@@ -140,6 +140,67 @@ nav ul li a:hover::after {
 html {
     scroll-behavior: smooth;
 }
+
+.vh-100 {
+  height: 100vh !important;
+}
+
+.container {
+  --si-gutter-x: 1.5rem;
+  --si-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--si-gutter-x) * 0.5);
+  padding-left: calc(var(--si-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  --si-gutter-x: 1.5rem;
+  --si-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--si-gutter-y));
+  margin-right: calc(-0.5 * var(--si-gutter-x));
+  margin-left: calc(-0.5 * var(--si-gutter-x));
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--si-gutter-x) * 0.5);
+  padding-left: calc(var(--si-gutter-x) * 0.5);
+  margin-top: var(--si-gutter-y);
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.mt-n5 {
+  margin-top: -3rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
 .hero-video {
     position: relative;
     height: 100vh; /* Full viewport height */
@@ -161,15 +222,15 @@ html {
 }
 
 .hero-text {
-    position: relative;
+    position: absolute;    /* change to absolute positioning */
+    top: 10px;                /* position at the upper side; adjust (e.g., 20px) if needed */
+    left: 10%;             /* center horizontally */
+    transform: translateX(-50%);  /* centering adjustment */
     z-index: 1;
-    text-align: center;
     color: white;
-    font-size: 2.5rem;  /* increased font size */
-    background-color: rgba(0, 0, 0, 0.5);  /* semi-transparent background */
-    padding: 20px 20px;  /* increased vertical padding */
-    top: 50%;
-    transform: translateY(-50%);
+    font-size: 2.5rem;
+    padding: 20px;
+    /* remove previous margin/align-self settings */
 }
 
 .font-en {
@@ -335,8 +396,7 @@ body :not(header):not(header *) {
 }
 
 .subtitle {
-    color: transparent;          /* Make text transparent */
-    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+    color: rgb(73, 117, 156, 0.8) ;
     font-size: 3.5rem;
     margin-bottom: 20px;
     text-transform: uppercase;

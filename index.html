@@ -42,12 +42,15 @@
     <section class="hero-top">
         <div class="hero-top__hero-movie-video">
             <div class="hero-top__hero-movie-video-inner hero-top__hero-movie-video-inner--overlay" id="hero-top__hero-movie-video-inner">
-                <video class="hero-top__hero-movie-video-body" id="hero-top__hero-movie-video-body" src="videos/header.mp4" autoplay muted playsinline loop data-channel-id="0" data-object-fit>
+                <video class="hero-top__hero-movie-video-body" id="hero-top__hero-movie-video-body" src="videos/Untitled.mp4" autoplay muted playsinline loop data-channel-id="0" data-object-fit>
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
-        <h2 class="hero-text" id="welcome">Welcome to My Portfolio</h2>
+        <div class="d-flex flex-shrink-0 align-items-start flex-nowrap" style="justify-content: flex-end;">
+            <img src="images/screens01.png" class="rellax d-block flex-shrink-0 mt-n5" style="margin-top: -50px;" width="486" height="1390" alt="Screens" data-rellax-speed="4" data-disable-parallax-down="md">
+            <img src="images/screens01.png" class="rellax d-block flex-shrink-0 mt-5" style="margin-top: -50px;" width="486" height="1470" alt="Screens" data-rellax-speed="-4" data-disable-parallax-down="md">
+        </div>
     </section>
 
     <article id="about" class="section fade-up">
@@ -200,7 +203,6 @@
     
             // Update translations
             document.title = translations[lang]["title"];
-            document.getElementById("welcome").innerText = translations[lang]["welcome"];
             document.getElementById("about").querySelector("h2").innerText = translations[lang]["about"];
             document.getElementById("story").querySelector("h2").innerText = translations[lang]["story"];
             
@@ -230,7 +232,6 @@
 const translations = {
             "en": {
                 "title": "LIU MANYUN Portfolio",
-                "welcome": "Welcome to My Portfolio",
                 "about": "About Me",
                 "story": "Story",
                 "contact": "Contact",
@@ -262,7 +263,6 @@ const translations = {
 
             "zh-Hant": {
                 "title": "劉曼筠的Portfolio",
-                "welcome": "歡迎來到曼筠的Portfolio",
                 "about": "關於我",
                 "story": "小故事",
                 "contact": "聯絡",
@@ -293,7 +293,6 @@ const translations = {
             },
             "ja": {
                 "title": "リュウのポートフォリオ",
-                "welcome": "曼筠のProtfolioへようこそ",
                 "about": "私について",
                 "story": "ストーリー",
                 "contact": "コンタクト",
