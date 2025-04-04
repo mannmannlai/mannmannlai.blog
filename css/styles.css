@@ -164,12 +164,10 @@ html {
     position: relative;
     z-index: 1;
     text-align: center;
-    color: transparent;          /* Make text transparent */
-    -webkit-text-stroke: 0.05px white; /* Apply white outline with 1px thickness */
-    font-size: 3rem;  /* increased font size */
+    color: white;
+    font-size: 2.5rem;  /* increased font size */
     background-color: rgba(0, 0, 0, 0.5);  /* semi-transparent background */
     padding: 20px 20px;  /* increased vertical padding */
-    border-radius: 8px;
     top: 50%;
     transform: translateY(-50%);
 }

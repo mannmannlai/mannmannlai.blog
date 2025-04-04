@@ -61,34 +61,34 @@
             </div>
             <div class="profile-text">
                 <div class="details-columns">
-                    <details>
-                        <summary>基本情報</summary>
+                    <details data-key="basicInfo">
+                        <summary data-key="basicInfo.summary">基本情報</summary>
                         <ul>
-                            <li>台湾出身、日本在住</li>
-                            <li>日本語、英語、中国語を話せます。</li>
-                            <li>筑波大学 知能機能システム学位 自然言語処理研究室所属</li>
-                            <li>自然言語処理を専攻しています</li>
+                            <li data-key="basicInfo.item1">台湾出身、日本在住</li>
+                            <li data-key="basicInfo.item2">日本語、英語、中国語を話せます。</li>
+                            <li data-key="basicInfo.item3">筑波大学 知能機能システム学位 自然言語処理研究室所属</li>
+                            <li data-key="basicInfo.item4">自然言語処理を専攻しています</li>
                         </ul>
                     </details>
-                    <details>
-                        <summary>保有する資格</summary>
+                    <details data-key="qualifications">
+                        <summary data-key="qualifications.summary">保有する資格</summary>
                         <ul>
-                            <li>日本語能力試験 N1</li>
-                            <li>TOEIC 900点</li>
-                            <li>ITパスポート</li>
-                            <li>基本情報技術者</li>
-                            <li>CWT中国語検定‧上級</li>
-                            <li>大型自動車第一種免許 MT</li>
-                            <li>普通自動二輪免許 MT</li>
+                            <li data-key="qualifications.item1">日本語能力試験 N1</li>
+                            <li data-key="qualifications.item2">TOEIC 900点</li>
+                            <li data-key="qualifications.item3">ITパスポート</li>
+                            <li data-key="qualifications.item4">基本情報技術者</li>
+                            <li data-key="qualifications.item5">CWT中国語検定‧上級</li>
+                            <li data-key="qualifications.item6">大型自動車第一種免許 MT</li>
+                            <li data-key="qualifications.item7">普通自動二輪免許 MT</li>
                         </ul>
                     </details>
-                    <details>
-                        <summary>趣味</summary>
+                    <details data-key="hobbies">
+                        <summary data-key="hobbies.summary">趣味</summary>
                         <ul>
-                            <li>登山</li>
-                            <li>クライミング</li>
-                            <li>キャンプ</li>
-                            <li>ベース‧ギターを弾くこと</li>
+                            <li data-key="hobbies.item1">登山</li>
+                            <li data-key="hobbies.item2">クライミング</li>
+                            <li data-key="hobbies.item3">キャンプ</li>
+                            <li data-key="hobbies.item4">ベース‧ギターを弾くこと</li>
                         </ul>
                     </details>
                 </div>
@@ -106,9 +106,9 @@
                 <div class="card">
                     <img src="images/story_cover1.JPG" width="10%" alt="Story 1">
                     <div class="overlay">
-                        <h5>- title -</h5>
+                        <h5 data-key="storyCard.title">- title -</h5>
                     </div>
-                    <h4>story1</h4>
+                    <h4 data-key="storyCard.story1">story1</h4>
                 </div>
             </a>
     
@@ -117,9 +117,9 @@
                 <div class="card">
                     <img src="images/story_cover2.JPG" width="10%" alt="Story 2">
                     <div class="overlay">
-                        <h5>- title -</h5>
+                        <h5 data-key="storyCard.title">- title -</h5>
                     </div>
-                    <h4>story2</h4>
+                    <h4 data-key="storyCard.story2">story2</h4>
                 </div>
             </a>
     
@@ -128,9 +128,9 @@
                 <div class="card">
                     <img src="images/story_cover3.JPG" width="10%" alt="Story 3">
                     <div class="overlay">
-                        <h5>- title -</h5>
+                        <h5 data-key="storyCard.title">- title -</h5>
                     </div>
-                    <h4>story3</h4>
+                    <h4 data-key="storyCard.story3">story3</h4>
                 </div>
             </a>
         </div>
@@ -215,30 +215,112 @@
             }
 
             document.getElementById("language-select").value = lang;
+
+            // Update details section translations
+            const detailsElements = document.querySelectorAll("[data-key]");
+            detailsElements.forEach(element => {
+                const key = element.getAttribute("data-key");
+                if (translations[lang].details[key]) {
+                    element.innerText = translations[lang].details[key];
+                }
+            });
         }
 
-        // Language translations
-        const translations = {
+// Language translations
+const translations = {
             "en": {
                 "title": "LIU MANYUN Portfolio",
                 "welcome": "Welcome to My Portfolio",
                 "about": "About Me",
                 "story": "Story",
-                "contact": "Contact"
+                "contact": "Contact",
+                "details": {
+                    "basicInfo.summary": "Basic Information",
+                    "basicInfo.item1": "Born in Taiwan, living in Japan",
+                    "basicInfo.item2": "Speaks Japanese, English, and Chinese",
+                    "basicInfo.item3": "Tsukuba University, Intelligent and Mechanical Interation Systems, NLP Lab",
+                    "basicInfo.item4": "Specializing in Maching Traslating in Natural Language Processing",
+                    "qualifications.summary": "Qualifications",
+                    "qualifications.item1": "Japanese Language Proficiency Test N1",
+                    "qualifications.item2": "TOEIC 900",
+                    "qualifications.item3": "IT Passport",
+                    "qualifications.item4": "Fundamental Information Technology Engineer",
+                    "qualifications.item5": "CWT Chinese Proficiency Test - Advanced",
+                    "qualifications.item6": "Large Motor Vehicle License MT",
+                    "qualifications.item7": "Standard Motorcycle License MT",
+                    "hobbies.summary": "Hobbies",
+                    "hobbies.item1": "Mountain Climbing",
+                    "hobbies.item2": "Climbing",
+                    "hobbies.item3": "Camping",
+                    "hobbies.item4": "Playing Bass and Guitar",
+                "storyCard.title":"Click to read story",
+                "storyCard.story1":"story1",
+                "storyCard.story2":"story2",
+                "storyCard.story3":"story3",
+                }
             },
+
             "zh-Hant": {
                 "title": "劉曼筠的Portfolio",
                 "welcome": "歡迎來到曼筠的Portfolio",
                 "about": "關於我",
                 "story": "小故事",
-                "contact": "聯絡"
+                "contact": "聯絡",
+                "details": {
+                    "basicInfo.summary": "基本情報",
+                    "basicInfo.item1": "台灣人，日本在住",
+                    "basicInfo.item2": "日語・英語・中文流暢",
+                    "basicInfo.item3": "筑波大學 知能機能システム學位 自然語言處理研究室",
+                    "basicInfo.item4": "自然語言處理的機器翻譯專攻",
+                    "qualifications.summary": "保有檢定",
+                    "qualifications.item1": "日語能力試驗 N1",
+                    "qualifications.item2": "TOEIC 900分",
+                    "qualifications.item3": "IT Passport",
+                    "qualifications.item4": "基本情報技術者",
+                    "qualifications.item5": "CWT中文檢定 高級",
+                    "qualifications.item6": "大型車第一種駕照 MT",
+                    "qualifications.item7": "普通自動二輪駕照 MT",
+                    "hobbies.summary": "興趣",
+                    "hobbies.item1": "登山",
+                    "hobbies.item2": "攀岩",
+                    "hobbies.item3": "露營",
+                    "hobbies.item4": "彈貝斯和吉他",
+                "storyCard.title":"請點擊開始閱讀",
+                "storyCard.story1":"故事1",
+                "storyCard.story2":"故事2",
+                "storyCard.story3":"故事3",
+                }
             },
             "ja": {
                 "title": "リュウのポートフォリオ",
                 "welcome": "曼筠のProtfolioへようこそ",
                 "about": "私について",
                 "story": "ストーリー",
-                "contact": "コンタクト"
+                "contact": "コンタクト",
+                "details": {
+                    "basicInfo.summary": "基本情報",
+                    "basicInfo.item1": "台湾出身、日本在住",
+                    "basicInfo.item2": "日本語、英語、中国語を話せます。",
+                    "basicInfo.item3": "筑波大学 知能機能システム学位 自然言語処理研究室所属",
+                    "basicInfo.item4": "自然言語処理の機械翻訳を専攻しています",
+                    "qualifications.summary": "保有する資格",
+                    "qualifications.item1": "日本語能力試験 N1",
+                    "qualifications.item2": "TOEIC 900点",
+                    "qualifications.item3": "ITパスポート",
+                    "qualifications.item4": "基本情報技術者",
+                    "qualifications.item5": "CWT中国語検定‧上級",
+                    "qualifications.item6": "大型自動車第一種免許 MT",
+                    "qualifications.item7": "普通自動二輪免許 MT",
+                    "hobbies.summary": "趣味",
+                    "hobbies.item1": "登山",
+                    "hobbies.item2": "クライミング",
+                    "hobbies.item3": "キャンプ",
+                    "hobbies.item4": "ベース‧ギターを弾くこと",
+                "storyCard.title":"クリックして",
+                "storyCard.story1":"ストーリー1",
+                "storyCard.story2":"ストーリー2",
+                "storyCard.story3":"ストーリー3",
+                }
             }
         };
         

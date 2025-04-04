@@ -17,6 +17,7 @@ function applyLanguage(lang) {
     document.title = translations[lang]["title"];
     document.getElementById("welcome").innerText = translations[lang]["welcome"];
     document.getElementById("about").querySelector("h2").innerText = translations[lang]["about"];
+    document.getElementById("story").querySelector("h2").innerText = translations[lang]["story"];
     document.getElementById("projects").querySelector("h2").innerText = translations[lang]["projects"];
     document.getElementById("contact").querySelector("h2").innerText = translations[lang]["contact"];
     document.getElementById("language-select").value = lang;
@@ -27,6 +28,15 @@ function applyLanguage(lang) {
         navLinks[0].innerText = translations[lang]["about"]; // About Me
         navLinks[1].innerText = translations[lang]["projects"]; // Projects
         navLinks[2].innerText = translations[lang]["contact"]; // Contact
+    }
+
+    // Update details elements from translations
+    const detailsTranslations = translations[lang].details;
+    for (const key in detailsTranslations) {
+        const elems = document.querySelectorAll(`[data-key="${key}"]`);
+        elems.forEach(elem => {
+            elem.innerText = detailsTranslations[key];
+        });
     }
 }
 
