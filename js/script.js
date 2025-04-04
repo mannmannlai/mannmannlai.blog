@@ -1,3 +1,5 @@
+var rellax = new Rellax('rellax');
+
 function applyLanguage(lang) {
     const header = document.getElementById("main-header");
 
