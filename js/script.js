@@ -1,18 +1,18 @@
-var rellax = new Rellax('rellax');
-
 function applyLanguage(lang) {
-    const header = document.getElementById("main-header");
+    // Remove language classes from header and body
+    document.getElementById("main-header").classList.remove("font-en", "font-zh", "font-ja");
+    document.body.classList.remove("font-en", "font-zh", "font-ja");
 
-    // Remove existing language-specific font classes
-    header.classList.remove("font-en", "font-zh", "font-ja");
-
-    // Add the appropriate font class based on the selected language
+    // Add appropriate language classes to both header and body
     if (lang === "en") {
-        header.classList.add("font-en");
+        document.getElementById("main-header").classList.add("font-en");
+        document.body.classList.add("font-en");
     } else if (lang === "zh-Hant") {
-        header.classList.add("font-zh");
+        document.getElementById("main-header").classList.add("font-zh");
+        document.body.classList.add("font-zh");
     } else if (lang === "ja") {
-        header.classList.add("font-ja");
+        document.getElementById("main-header").classList.add("font-ja");
+        document.body.classList.add("font-ja");
     }
 
     // Update translations
@@ -41,6 +41,10 @@ function applyLanguage(lang) {
         });
     }
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+    var rellax = new Rellax('.rellax');
+});
 
 function sendEmail(event) {
     event.preventDefault();

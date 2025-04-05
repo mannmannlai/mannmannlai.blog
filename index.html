@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Add Rellax CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
     <!-- Added icons for app icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
@@ -47,9 +49,9 @@
                 </video>
             </div>
         </div>
-        <div class="d-flex flex-shrink-0 align-items-start flex-nowrap" style="justify-content: flex-end;">
+        <div class="d-flex flex-shrink-0 align-items-start flex-nowrap " style="justify-content: flex-end;">
             <img src="images/screens01.png" class="rellax d-block flex-shrink-0 mt-n5" style="margin-top: -50px;" width="486" height="1390" alt="Screens" data-rellax-speed="4" data-disable-parallax-down="md">
-            <img src="images/screens02.png" class="rellax d-block flex-shrink-0 mt-5" style="margin-top: -50px;" width="486" height="1470" alt="Screens" data-rellax-speed="-4" data-disable-parallax-down="md">
+            <img src="images/screens02.png" class="rellax d-block flex-shrink-0 mt-5" style="margin-top: -70px;" width="486" height="1470" alt="Screens" data-rellax-speed="-5" data-disable-parallax-down="md">
             <!-- Apply Rellax to the above images -->
         </div>
     </section>
@@ -102,8 +104,7 @@
     
     <article id="story" class="section fade-up">
         <h2 class="subtitle">Story</h2>
-        <p id="projects-text">Check out some of my latest work.</p>
-    
+
         <div class="project-cards">
             <!-- Story 1 -->
             <a href="story/story1.html">
@@ -138,6 +139,9 @@
                 </div>
             </a>
         </div>
+        <p style="font-size:1rem; color:#4a4588; text-align:right; position:relative; z-index:5;">
+            Image Credit: Bridge <br> Check out <a href="https://bridgechen0406.github.io/index.html" target="_blank">Bridge's page</a> for more projectss.
+        </p>
     </article>
 
     <footer>
@@ -265,7 +269,7 @@ const translations = {
             "zh-Hant": {
                 "title": "劉曼筠的Portfolio",
                 "about": "關於我",
-                "story": "小故事",
+                "story": "個人經驗",
                 "contact": "聯絡",
                 "details": {
                     "basicInfo.summary": "基本情報",
@@ -283,7 +287,7 @@ const translations = {
                     "qualifications.item7": "普通自動二輪駕照 MT",
                     "hobbies.summary": "興趣",
                     "hobbies.item1": "登山",
-                    "hobbies.item2": "攀岩",
+                    "hobbies.item2": "抱石、攀岩",
                     "hobbies.item3": "露營",
                     "hobbies.item4": "彈貝斯和吉他",
                 "storyCard.title":"請點擊開始閱讀",
@@ -313,13 +317,13 @@ const translations = {
                     "qualifications.item7": "普通自動二輪免許 MT",
                     "hobbies.summary": "趣味",
                     "hobbies.item1": "登山",
-                    "hobbies.item2": "クライミング",
+                    "hobbies.item2": "ボルダリング",
                     "hobbies.item3": "キャンプ",
                     "hobbies.item4": "ベース‧ギターを弾くこと",
                 "storyCard.title":"クリックして",
-                "storyCard.story1":"ストーリー1",
-                "storyCard.story2":"ストーリー2",
-                "storyCard.story3":"ストーリー3",
+                "storyCard.story1":"国際交流・ボランティア経験",
+                "storyCard.story2":"独学でITに関連知識",
+                "storyCard.story3":"チームをリードしたこと",
                 }
             }
         };
@@ -351,6 +355,10 @@ const translations = {
                     }
                 });
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function(){
+            var rellax = new Rellax('.rellax');
         });
 
     </script>

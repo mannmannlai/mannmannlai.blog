@@ -123,9 +123,9 @@ nav ul li a:hover::after {
 /* Scrollable Sections */
 .section {
     min-height: 100vh;
-    padding: 150px 20px 50px; /* increased top padding to move content down */
-    background: rgba(255,255,255,0.8);  /* updated to semi-transparent white */
+    padding: 80px 20px 50px; /* increased top padding to move content down */
     margin-bottom: 50px;
+
 }
 
 .section:nth-child(even) {
@@ -198,7 +198,7 @@ html {
 }
 
 .mt-5 {
-  margin-top: -1rem !important;
+  margin-top: -5rem !important;
 }
 
 .hero-video {
@@ -343,9 +343,11 @@ body :not(header):not(header *) {
 
 /* Force story card images to be square */
 .project-cards .card img {
-    width: 100%;          /* Fill the container width */
-    aspect-ratio: 1 / 1;   /* Force square aspect ratio */
-    object-fit: cover;     /* Crop to fill the square shape */
+    width: 60%;          /* Fill the container width */
+    object-fit: cover;   /* Crop to fill the square shape */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Styling for details columns */
@@ -410,4 +412,10 @@ body :not(header):not(header *) {
     margin-bottom: 20px;
     text-transform: uppercase;
     margin-left: 280px;
+}
+
+/* Override default link styling for story card text */
+a h4[data-key^="storyCard.story"] {
+    text-decoration: none !important;
+    color: rgba(18, 43, 65, 0.8) !important;
 }
