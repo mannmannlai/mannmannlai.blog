@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/contact.css">
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
+      // EmailJS initialization; ensure the user ID is correct.
       (function(){
-          emailjs.init("0Ar53lRS_zwrZN5d1"); // replace with your EmailJS user ID
+          emailjs.init("0Ar53lRS_zwrZN5d1"); // verify with your EmailJS account
       })();
     </script>
 </head>
@@ -32,21 +33,22 @@
     </header>
 
     <section>
-        <form id="contact-form" onsubmit="sendEmail(event)">
+        <!-- Added id="contact-form" -->
+        <form id="contact-form" action="https://formspree.io/f/xqapwjob" method="POST">
             <label for="name" id="label-name">Name:</label>
-            <input type="text" id="name" name="name" required>
-    
+                <input type="text" id="name" name="name" required>
+            </label>
             <label for="email" id="label-email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <!-- Added hidden field for sender (reply-to) -->
-            <input type="hidden" id="reply_to" name="reply_to">
-            
+                <input type="email" id="email" name="email" required>
+            </label>
+            <!-- Hidden subject field -->
+            <input type="hidden" name="_subject" value="New Contact Form Submission">
             <label for="message" id="label-message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-    
+                <textarea name="message" required></textarea>
             <button type="submit" id="send-button">Send</button>
         </form>
     </section>
+
     <!-- New footer with social buttons -->
     <footer>
         <div class="social-buttons">
@@ -68,7 +70,7 @@
                 "send": "Send"
             },
             "zh-Hant": {
-                "title": "聯絡我們",
+                "title": "聯絡我",
                 "header": "聯絡我",
                 "back": "返回首頁",
                 "name": "姓名：",
@@ -105,21 +107,52 @@
             document.getElementById("language-select").value = lang;
         }
 
-        // Updated sendEmail function using EmailJS:
+        // Updated sendEmail function with extra logging and error handling
         function sendEmail(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
             const form = event.target;
-            // Set the hidden reply_to field value to the email entered by sender
-            form.querySelector('input[name="reply_to"]').value = form.querySelector('#email').value;
+            // Set hidden field 'reply_to' from the email input
+            form.reply_to.value = form.email.value;
             emailjs.sendForm('service_mannmannlai', 'template_mannmannlai', form)
               .then(function(response) {
-                  alert("Email sent successfully!");
                   console.log("SUCCESS!", response.status, response.text);
-              }, function(error) {
-                  alert("Failed to send email. Please try again later.");
-                  console.log("FAILED...", error);
+                  alert("Email sent successfully!");
+              })
+              .catch(function(error) {
+                  console.error("FAILED...", error);
+                  alert("Failed to send email. Please check your EmailJS configuration and console for details.");
               });
         }
+
+        // Clear the form after successful submission via Formspree and call EmailJS
+        const form = document.getElementById("contact-form");
+        form.addEventListener("submit", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Email sent successfully!");
+                    // Call EmailJS function after successful Formspree submission
+                    emailjs.sendForm('service_mannmannlai', 'template_mannmannlai', form)
+                      .then(function(emailResponse) {
+                          console.log("EmailJS SUCCESS!", emailResponse.status, emailResponse.text);
+                      })
+                      .catch(function(emailError) {
+                          console.error("EmailJS FAILED...", emailError);
+                      });
+                    form.reset(); // Clear the form
+                } else {
+                    alert("Failed to send email.");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Failed to send email.");
+            });
+        });
 
         // Load language from localStorage on page load
         window.onload = function() {

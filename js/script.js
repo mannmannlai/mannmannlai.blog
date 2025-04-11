@@ -42,6 +42,31 @@ function applyLanguage(lang) {
     }
 }
 
+function load(url) {
+    // Show the loader element
+    var loader = document.querySelector('.loader');
+    if (loader) {
+        loader.style.display = 'block';
+    }
+    
+    // Request your data...
+    var req = new XMLHttpRequest();
+    req.open("POST", url, true);
+    
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            // Content is loaded...hide the loader and display the content...
+            if (req.responseText) {
+                document.getElementById('content').innerHTML = req.responseText;
+                if (loader) {
+                    loader.style.display = 'none';
+                }
+            }
+        }
+    };
+    req.send();
+}
+
 document.addEventListener("DOMContentLoaded", function(){
     var rellax = new Rellax('.rellax');
 });
