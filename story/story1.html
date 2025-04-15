@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/project.css">
     <style>
+        /* Flex layout for Story pages */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            flex: 1;
+        }
+        footer {
+            margin-top: auto;
+        }
         /* Additional Story Page CSS */
         #story-heading {
             font-size: 2.8rem;
@@ -25,8 +38,11 @@
     </style>
 </head>
 <body>
+    <video autoplay loop muted playsinline id="background-video" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; z-index: -1;">
+        <source src="/videos/Untitled.mp4" type="video/mp4">
+    </video>
     <header id="main-header">
-        <h1>LIU's Story</h1>
+        <h1 style="font-family: 'JF Open Huninn', sans-serif;">LIU's Story</h1>
         <nav>
             <ul>
               <li><a href="../index.html" class="nav-link">Home</a></li>
@@ -44,13 +60,8 @@
     </header>
 
     <section>
-        <h2 id="story-heading">Welcome to Story 1</h2>
-        <p id="story-content">This is the content for Story Title. Add your specific content here.</p>
-        <div class="story-photos">
-            <img src="../images/story1_photo1.jpg" alt="Story 1 Photo 1">
-            <img src="../images/story1_photo2.jpg" alt="Story 1 Photo 2">
-            <img src="../images/story1_photo3.jpg" alt="Story 1 Photo 3">
-        </div>
+        <h2 id="story-heading" style="color: #34495e;">Welcome to Story 1</h2>
+        <p id="story-content" style="color: #34495e;">This is the content for Story Title. Add your specific content here.</p>
     </section>
 
     <div class="overlay">
@@ -65,16 +76,16 @@
         // Translation dictionary for Story 1 content
         const storyTranslations = {
           "en": {
-            "storyHeading": "Welcome to Story 1",
-            "storyContent": "This is the content for Story Title. Add your specific content here."
+            "storyHeading": "Enhancing Global Communication Skills ",
+            "storyContent": "Through studying abroad and working in language education, I came to deeply appreciate the importance of engaging with people from diverse cultures and value systems. At university, I took charge of planning and organizing international exchange events, where I made it a priority to understand participants’ cultural backgrounds and devise appropriate methods of communication. These experiences enhanced my ability to communicate smoothly with individuals from different cultural and personal backgrounds, while also strengthening my intercultural understanding and leadership skills. By leveraging these experiences, along with my language proficiency and communication skills, I hope to collaborate with international teams, understand the needs of various markets, and formulate and implement optimal marketing strategies"
           },
           "zh-Hant": {
-            "storyHeading": "歡迎來到故事 1",
-            "storyContent": "這是故事標題的內容。請在此添加您的特殊內容。"
+            "storyHeading": "以跨文化視野與語言能力打造國際溝通優勢",
+            "storyContent": `透過留學經驗與語言教育相關的工作，我深刻體會到與不同文化與價值觀的人交流的重要性。在大學期間，我負責策劃與籌辦國際交流活動以及擔任實習老師，並重視在理解對方文化背景的基礎上，設計合適的交流方式。這些經歷不僅提升了我與來自不同背景人士進行順暢溝通的能力，也培養了我對異文化的理解力與領導能力。未來，我希望能善用這些經驗，結合語言能力與溝通技巧，與各國據點緊密合作，掌握市場需求，並規劃與執行最合適的行銷策略`
           },
           "ja": {
-            "storyHeading": "国際交流を活かした課外活動・教育ボランティア経験",
-            "storyContent": `留学と語学教育の仕事を通じて、異なる文化や価値観を持つ人々との交流の重要性を実感しました。大学ではサークル活動やイベント運営を通じて、協力して課題を解決する力を養いました。多様な文化を理解し、異なるバックグラウンドを持つ人々と円滑にコミュニケーションを取る力を向上させることを目指しました。国際交流イベントの企画・運営を担当し、相手の文化的背景を理解し、適切な交流を工夫することを大切にしました。これにより、異文化理解、リーダーシップ、チームワークのスキルを向上させることができました。これらの経験を活かし、語学力とコミュニケーション力を駆使して、各国の拠点と連携しながら市場のニーズを把握し、最適なマーケティング戦略を立案・実行したいと考えています。`
+            "storyHeading": "語学教育と国際交流を通じた異文化対応力の習得",
+            "storyContent": `留学や語学教育に関わる仕事を通じて、異なる文化や価値観を持つ人々と交流することの重要性を実感しました。大学では、国際交流イベントの企画・運営に携わるとともに、語学教師のインターンも経験し、相手の文化的背景を理解したうえで、適切な交流の方法を工夫することを常に意識してきました。こうした活動を通して、多様な文化を理解し、異なるバックグラウンドを持つ人々と円滑にコミュニケーションを取る力を高めることができました。また、異文化理解力やリーダーシップも養うことができたと感じています。`
           }
         };
 

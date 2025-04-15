@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/project.css">
     <style>
+        /* Flex layout for Story pages */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            flex: 1;
+        }
+        footer {
+            margin-top: auto;
+        }
         /* Additional Story Page CSS */
         #story-heading {
             font-size: 2.8rem;
@@ -25,8 +38,11 @@
     </style>
 </head>
 <body>
+    <video autoplay loop muted playsinline id="background-video" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; z-index: -1;">
+        <source src="/videos/Untitled.mp4" type="video/mp4">
+    </video>
     <header>
-        <h1>Story Title</h1>
+        <h1 style="font-family: 'JF Open Huninn', sans-serif;">LIU's Story</h1>
         <nav>
           <ul>
             <li><a href="../index.html" class="nav-link">Home</a></li>
@@ -44,23 +60,18 @@
     </header>
 
     <section>
-        <h2 id="story-heading">Welcome to Story 2</h2>
-        <p id="story-content">This is the content for Story 2. Add your specific content here.</p>
-        <div class="story-photos">
-            <img src="../images/story2_photo1.jpg" alt="Story 2 Photo 1">
-            <img src="../images/story2_photo2.jpg" alt="Story 2 Photo 2">
-            <img src="../images/story2_photo3.jpg" alt="Story 2 Photo 3">
-        </div>
+      <h2 id="story-heading" style="color: #34495e;">Welcome to Story 1</h2>
+        <p id="story-content" style="color: #34495e">This is the content for Story 2. Add your specific content here.</p>    
     </section>
     <script>
         const storyTranslations = {
           "en": {
-            "storyHeading": "Welcome to Story 2",
-            "storyContent": "This is the content for Story 2. Add your specific content here."
+            "storyHeading": "Self-Learning IT-Related Knowledge",
+            "storyContent": "While majoring in Language Education during my undergraduate years, I became interested in the potential of AI to improve the efficiency and flexibility of education. This interest led me to begin self-learning related IT knowledge, through which I gained a deeper understanding of how AI technologies can be applied in the field of education. While continuing my self-study, I applied to the University of Tsukuba and am currently pursuing specialized academic training in a research lab. In particular, I am conducting research on machine translation within the field of natural language processing. These experiences have broadened my academic perspective and deepened my understanding of the future potential and challenges of AI technologies. Going forward, I hope to explore the practical applications of these technologies in real-world work environments."
           },
           "zh-Hant": {
-            "storyHeading": "自學IT關聯知識",
-            "storyContent": "這是故事 2 的內容。請在此添加您的特殊內容。"
+            "storyHeading": "透過自學掌握IT相關知識",
+            "storyContent": "在大學時期主修中文教育的過程中，我開始意識到人工智慧有潛力提升教育的效率與彈性，進而對其產生濃厚興趣。於是我開始自學相關知識，逐步理解AI技術在教育領域中的應用方式。在自學的同時，我報考了筑波大學，並進入研究室深入鑽研專業領域。特別是在自然語言處理的領域中，我專注於機器翻譯的研究。這段經歷讓我拓展了學術視野，更深入理解了AI技術的潛力與挑戰。未來，我希望能在實際的職場中探索AI技術的應用可能性。"
           },
           "ja": {
             "storyHeading": "独学でITに関連知識",

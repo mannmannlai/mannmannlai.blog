@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/project.css">
     <style>
+        /* Flex layout for Story pages */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            flex: 1;
+        }
+        footer {
+            margin-top: auto;
+        }
         /* Additional Story Page CSS */
         #story-heading {
             font-size: 2.8rem;
@@ -25,8 +38,11 @@
     </style>
 </head>
 <body>
+    <video autoplay loop muted playsinline id="background-video" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; z-index: -1;">
+        <source src="/videos/Untitled.mp4" type="video/mp4">
+    </video>
     <header>
-        <h1>Story Title</h1>
+        <h1 style="font-family: 'JF Open Huninn', sans-serif;">LIU's Story</h1>
         <nav>
           <ul>
             <li><a href="../index.html" class="nav-link">Home</a></li>
@@ -44,27 +60,32 @@
     </header>
 
     <section>
-        <h2 id="story-heading">Welcome to Story 3</h2>
-        <p id="story-content">This is the content for Story 3. Add your specific content here.</p>
-        <div class="story-photos">
-            <img src="../images/story3_photo1.jpg" alt="Story 3 Photo 1">
-            <img src="../images/story3_photo2.jpg" alt="Story 3 Photo 2">
-            <img src="../images/story3_photo3.jpg" alt="Story 3 Photo 3">
-        </div>
+      <h2 id="story-heading" style="color: #34495e;">Welcome to Story 1</h2>
+        <p id="story-content" style="color: #34495e;">This is the content for Story 3. Add your specific content here.</p>
     </section>
     <script>
         const storyTranslations = {
           "en": {
-            "storyHeading": "Welcome to Story 3",
-            "storyContent": "This is the content for Story 3. Add your specific content here."
+            "storyHeading": "Experience in Leading a Team",
+            "storyContent": `During my time at university, I played a central role in planning and organizing activities for clubs such as the light music club and the mountaineering club, as well as departmental events. In each case, I worked closely with team members to achieve shared goals. I placed importance on respecting each individual’s opinion, leading the group while keeping everyone aligned, and ensuring smooth project execution. Through these experiences, I developed strong skills in planning and organizational management.
+            In addition, at the English language school where I worked part-time—which operated four different branches—daily routines were standardized, but teaching materials and resources were inconsistently managed by each staff member, which I felt reduced overall efficiency. To address this, I proactively created a centralized and structured resource management system using Google Sheets, allowing all staff to easily access and share materials. Given that some instructors were non-Japanese speakers, I also proposed adding English as a display language in the internal system.
+            As a result, all staff were able to access necessary materials more efficiently, reducing preparation time and simplifying handovers. I believe this initiative contributed significantly to improving overall operational efficiency.
+            By leveraging the language skills, communication abilities, and leadership I cultivated through these experiences, I hope to collaborate effectively with international teams in the future, accurately grasp market needs, and design and implement optimal marketing strategies.`
+
           },
           "zh-Hant": {
             "storyHeading": "領導團隊經驗",
-            "storyContent": "這是故事 3 的內容。請在此添加您的特殊內容。"
+            "storyContent": `在大學期間，我曾在輕音社和登山社等社團活動中擔任核心成員，也參與了學系的活動企劃與運營。在這些經歷中，我負責提出企劃方案，並與成員們協力合作，朝著共同的目標努力前進。我重視每一位成員的意見，致力於整合想法並發揮領導力，以實現活動的順利進行。透過這些經驗，我培養了企劃能力與組織運營能力。
+            此外，在我工作的英語補習班中，雖然每天的工作流程大致統一，但教材與資料的管理方式卻因負責人不同而不一致，導致整體效率降低。為了解決這個問題，我主動使用 Google Sheets 建立了一個讓所有員工都能瀏覽與共享的教材管理表，將資訊統一與系統化。考量到有外籍教師任教，我也提出將內部系統的顯示語言新增英文選項的建議。
+            透過這項改善措施，員工可以迅速存取所需教材，不僅縮短了準備時間，也簡化了交接流程，對整體工作效率的提升帶來了顯著貢獻。
+            我相信這些經驗所培養出的語言能力、溝通能力與領導力，將能讓我在未來與國際團隊合作時，有效掌握市場需求，並制定與執行最適切的行銷策略。`
           },
           "ja": {
             "storyHeading": "チームをリードする経験",
-            "storyContent": `軽音部と山岳部のサークル活動や学部のイベント運営では、チームを率いて企画を立案し、メンバーと協力しながら目標達成に向けて取り組みました。チームワークを大切にし、意見をまとめながらリーダーシップを発揮し、円滑な運営を実現しました。これらの経験を通じて、計画立案力や組織運営能力を向上させました。これらの経験を活かし、語学力とコミュニケーション力を駆使しながら、各国の拠点と連携し、市場のニーズを把握し、最適なマーケティング戦略を立案・実行したいと考えています。`
+            "storyContent": `軽音部や山岳部でのサークル活動、そして学部のイベント運営において、私はチームの中心となって企画立案を行い、メンバーと協力しながら目標達成に向けて取り組んできました。メンバー一人ひとりの意見を尊重し、全体をまとめながらリーダーシップを発揮することで、円滑な運営を実現しました。こうした経験を通じて、計画立案力や組織運営能力を培うことができました。
+            また、アルバイト先である支店が4か所ある英語塾では、1日の業務の流れは統一されていたものの、教材や資料の管理が各担当者によって異なっており、業務の効率が低下していると感じていました。そこで私は、自発的にGoogle Sheetsを用いて、全社員が閲覧・共有可能な教材・資料の管理表を作成し、情報を一元化・体系化しました。さらに、外国籍の教員も在籍していたため、社内システムの表示言語に英語を追加することも提案しました。
+            この取り組みにより、必要な教材にすぐアクセスできる環境が整い、準備時間の短縮や業務の引き継ぎの簡略化を実現するなど、全体の業務効率化に大きく貢献できたと感じています。
+            これらの経験で培った語学力、コミュニケーション力、そしてリーダーシップを活かし、今後は国際的なチームと連携しながら市場ニーズを的確に把握し、最適なマーケティング戦略を立案・実行していきたいと考えています。`
           }
         };
         function applyStoryTranslations(lang) {
