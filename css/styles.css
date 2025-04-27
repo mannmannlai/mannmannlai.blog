@@ -416,6 +416,5 @@ body :not(header):not(header *) {
 
 /* Override default link styling for story card text */
 a h4[data-key^="storyCard.story"] {
-    text-decoration: none !important;
     color: rgba(18, 43, 65, 0.8) !important;
 }
